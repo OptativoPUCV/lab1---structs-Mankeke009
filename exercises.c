@@ -52,6 +52,7 @@ int *filterEvenNumbers(int arr[], int size, int *newSize) {
     }
   }
   *newSize = cont;
+  
   return newArr; 
 }
 
@@ -65,15 +66,18 @@ void mergeSortedArrays(int arr1[], int size1, int arr2[], int size2,int result[]
   int tallaT = size1 + size2;
   int cont1 = 0;
   int cont2 = 0;
-  for(int i = 0; i < tallaT; i++){
-    if(arr1[cont1] < arr2[cont2]){
-      result[i] = arr1[cont1];
-      cont1 ++;
+  for(int i = 0; i < tallaT;i++){
+    if(cont1 < size1 && cont2 < size2){
+      if(arr1[cont1] < arr2[cont2]){
+        result[i] = arr1[cont1];
+        cont1 ++;
+      }
+      else{
+        result[i] = arr2[cont2];
+        cont2 ++;
+      }
     }
-    else if (arr1[cont1] > arr2[cont2]){
-      result[i] = arr2[cont2];
-      cont2 ++;
-    }
+    
   }
 }
 
