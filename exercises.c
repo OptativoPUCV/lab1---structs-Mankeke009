@@ -84,9 +84,7 @@ void mergeSortedArrays(int arr1[], int size1, int arr2[], int size2,int result[]
     else {
         result[i] = arr2[cont2];
         cont2++;
-    }
-    
-    
+    } 
   }
 }
 
@@ -138,8 +136,10 @@ typedef struct {
 } Libro;
 
 void inicializarLibro(Libro *libro, const char *titulo, const char *nombreAutor,int anioNacimiento, int anioPublicacion) {
-  
-  
+  strcpy(libro->titulo, titulo);
+  libro -> anioPublicacion = anioPublicacion;
+  strcpy(libro->autor.nombre, nombreAutor);
+  libro->autor.anioNacimiento = anioNacimiento;  
 }
 /*Ejercicio 7: Lista enlazada de números
 Descripción: Escribe una función que tome un arreglo de enteros y su tamaño, y
