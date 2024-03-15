@@ -67,6 +67,7 @@ void mergeSortedArrays(int arr1[], int size1, int arr2[], int size2,int result[]
   int cont1 = 0;
   int cont2 = 0;
   for(int i = 0; i < tallaT;i++){
+    if(cont1 < size1 && cont2 < size2){
       if(arr1[cont1] < arr2[cont2]){
         result[i] = arr1[cont1];
         cont1 ++;
@@ -75,9 +76,17 @@ void mergeSortedArrays(int arr1[], int size1, int arr2[], int size2,int result[]
         result[i] = arr2[cont2];
         cont2 ++;
       }
-
+    }
+    else if (cont1 < size1) {
+        result[i] = arr1[cont1];
+        cont1++;
+    } 
+    else {
+        result[i] = arr2[cont2];
+        cont2++;
     } 
   }
+}
 
 /*
 Ejercicio 5: Comprobación de Ordenación
@@ -130,7 +139,8 @@ void inicializarLibro(Libro *libro, const char *titulo, const char *nombreAutor,
   strcpy(libro->titulo, titulo);
   libro -> anioPublicacion = anioPublicacion;
   strcpy(libro->autor.nombre, nombreAutor);
-  libro->autor.anioNacimiento = anioNacimiento;  
+  libro->autor.anioNacimiento = anioNacimiento;
+  
 }
 /*Ejercicio 7: Lista enlazada de números
 Descripción: Escribe una función que tome un arreglo de enteros y su tamaño, y
